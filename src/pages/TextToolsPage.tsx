@@ -33,6 +33,12 @@ type TextToolsPageProps = {
   initialActionId?: 'camel' | 'snake' | 'pascal' | 'diff' | 'dedupe' | 'word-count';
 };
 
+type WordDiffPart = {
+  value: string;
+  added?: boolean;
+  removed?: boolean;
+};
+
 export default function TextToolsPage({ initialActionId = 'camel' }: TextToolsPageProps) {
   const [input, setInput] = useState('hello world toolkit sample');
   const [secondaryInput, setSecondaryInput] = useState('hello brave world toolkit sample');
@@ -259,7 +265,7 @@ function WordDiffText({
   right: string;
   side: 'left' | 'right';
 }) {
-  const parts = diffWordsWithSpace(left, right);
+  const parts = diffWordsWithSpace(left, right) as WordDiffPart[];
 
   return (
     <span>

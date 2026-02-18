@@ -11,6 +11,12 @@ export type SideBySideDiffRow = {
   rightText: string;
 };
 
+type DiffPart = {
+  value: string;
+  added?: boolean;
+  removed?: boolean;
+};
+
 export function toCamelCase(value: string): string {
   const words = splitWords(value);
   return words
@@ -55,7 +61,7 @@ export function createDiffSummary(before: string, after: string): string {
 }
 
 export function createDiffLines(before: string, after: string): DiffLine[] {
-  return diffLines(before, after).flatMap((part) => {
+  return (diffLines(before, after) as DiffPart[]).flatMap((part) => {
     const kind: DiffLine['kind'] = part.added ? 'added' : part.removed ? 'removed' : 'unchanged';
     const lines = part.value.split('\n');
     if (lines[lines.length - 1] === '') {
@@ -66,7 +72,7 @@ export function createDiffLines(before: string, after: string): DiffLine[] {
 }
 
 export function createSideBySideDiffRows(before: string, after: string): SideBySideDiffRow[] {
-  const parts = diffLines(before, after);
+  const parts = diffLines(before, after) as DiffPart[];
   const rows: SideBySideDiffRow[] = [];
 
   for (let index = 0; index < parts.length; index += 1) {

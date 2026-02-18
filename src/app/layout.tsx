@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import type { ReactNode } from 'react';
+import { Suspense, type ReactNode } from 'react';
 import Script from 'next/script';
 import { AdSenseScript } from '@/components/ads/AdSenseScript';
 import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
@@ -46,7 +46,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
         <GoogleAnalytics />
         <AdSenseScript />
-        <PageViewTracker />
+        <Suspense fallback={null}>
+          <PageViewTracker />
+        </Suspense>
         <ClientShell>{children}</ClientShell>
       </body>
     </html>
