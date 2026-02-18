@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --background: 220 25% 96%;
+  --foreground: 224 38% 14%;
+  --muted: 220 20% 91%;
+  --accent: 171 74% 36%;
+  --card: 0 0% 100%;
+  --border: 220 23% 84%;
+}
+
+:root.dark {
+  color-scheme: dark;
+  --background: 220 34% 6%;
+  --foreground: 217 60% 94%;
+  --muted: 220 31% 10%;
+  --accent: 171 70% 42%;
+  --card: 221 38% 10%;
+  --border: 220 34% 22%;
+}
+
+body {
+  @apply m-0 min-h-screen bg-background text-foreground font-sans transition-colors duration-300;
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(20, 130, 115, 0.12), transparent 32%),
+    radial-gradient(circle at 85% 80%, rgba(226, 143, 48, 0.11), transparent 34%),
+    linear-gradient(180deg, #f3f6fb 0%, #eef4fb 100%);
+}
+
+:root.dark body {
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(31, 182, 164, 0.12), transparent 30%),
+    radial-gradient(circle at 85% 80%, rgba(249, 174, 64, 0.1), transparent 32%),
+    linear-gradient(180deg, #090e19 0%, #070a12 100%);
+}
+
+/* Improve contrast for utility classes that were tuned for dark mode */
+:root.light .text-slate-400 {
+  color: rgb(71 85 105);
+}
+
+:root.light .text-slate-300 {
+  color: rgb(51 65 85);
+}
+
+:root.light .text-slate-200 {
+  color: rgb(30 41 59);
+}
+
+:root.light .placeholder\:text-slate-400::placeholder {
+  color: rgb(100 116 139);
+}
+
+* {
+  @apply border-border;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
