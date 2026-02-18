@@ -34,7 +34,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap"
           rel="stylesheet"
         />
+        <meta name="google-site-verification" content="LYggMienCC4UPPpe-Kne0b0a3-oELJYGBQKnwpk2iH8" />
       </head>
+
       <body suppressHydrationWarning>
         <Script
           id="theme-bootstrap"
