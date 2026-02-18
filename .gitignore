@@ -4,8 +4,8 @@ node_modules
 .env.*
 !.env.example
 client/dist
-web/.next
-web/out
+.next
+out
 server/dist
 coverage
 *.log

@@ -1,42 +1,47 @@
 # DevFormat - all in one toolkit
 
-A Next.js toolkit with SEO-ready utility pages, optional AdSense, and built-in GA4 traffic tracking.
+DevFormat is a browser-based developer utility platform focused on fast formatting, conversion, comparison, and encoding workflows.
 
-## Run
+## Core Features
 
-```bash
-cd /Users/mukulchavan/Documents/Development/DevTools/devtoolkit-ai
-npm install
-npm run dev
-```
+### JSON Tools
+- JSON formatter
+- JSON validator with parse error details
+- JSON minifier
+- JSON to TypeScript converter
+- JSON to CSV converter
 
-## Environment
+### HTML Tools
+- HTML beautifier
+- HTML minifier
 
-Create `.env.local` from `.env.example`.
+### CSS Tools
+- CSS beautifier
+- CSS minifier
 
-### Required for traffic tracking
+### Encode / Decode Tools
+- Base64 encode/decode
+- URL encode/decode
+- JWT decoder
+- SHA256 hash generator
+- HTML entity encode/decode
 
-```bash
-NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
-```
+### Text Tools
+- Case converter (`camelCase`, `snake_case`, `PascalCase`)
+- Side-by-side diff checker with highlighted changes
+- Remove duplicate lines
+- Word counter
 
-### Optional
+### SQL Tools
+- SQL formatter
 
-```bash
-NEXT_PUBLIC_SITE_URL=https://yourdomain.com
-NEXT_PUBLIC_ADSENSE_CLIENT=ca-pub-xxxxxxxxxxxxxxxx
-NEXT_PUBLIC_ADSENSE_SLOT_INLINE=1234567890
-NEXT_PUBLIC_ADSENSE_SLOT_FOOTER=0987654321
-```
+## UX Features
+- Dark and light mode
+- Collapsible sidebar with tool search
+- Step-based action flow (select action -> run -> output)
+- Copy-to-clipboard for outputs
+- Toast notifications with close button
+- Keyboard shortcut support (`Ctrl+Enter`)
+- Responsive layout for desktop and mobile
+- Smooth page transitions and loading skeletons
 
-## What is tracked
-
-- Page views on every route change
-- First landing page per session
-- UTM/referrer capture (first touch and last touch in localStorage)
-
-## Where tracking is wired
-
-- GA script loader: `src/components/analytics/GoogleAnalytics.tsx`
-- Route tracking: `src/components/analytics/PageViewTracker.tsx`
-- Included in app layout: `app/layout.tsx`
